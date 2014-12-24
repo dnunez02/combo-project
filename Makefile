@@ -1,2 +1,2 @@
-main: main.cpp def.h
-	gcc -g util.cpp main.cpp
+main: def.h util.c main.c
+	gcc -g util.c main.c
