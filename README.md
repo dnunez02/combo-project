@@ -6,9 +6,12 @@ Some way to document fighting game combos.
 TODO: Find a decent representation for attacks and movements.
 
 Movements:
-JB  |  J  |  JF  
+
+```JB  |  J  |  JF 
+
  B  |  S  |   F
-CB  |  C  |  CF
+ 
+CB  |  C  |  CF```
 
 QCF, QCB, HCF, HCB, 360, FF (dash), BB(dash), CJ (superjump), DP (dragon punch: F -> C -> CF), xx (cancels)
 
