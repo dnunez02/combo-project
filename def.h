@@ -27,4 +27,10 @@ struct move {
 
 typedef move* move_t;
 
+/* UTILITY FUNCTIONS */
+
+int toupperstr(char *, int);
+int strtodir(char *);
+int strtoatk(char *);
+
 #endif /* _DEF_H_ */
