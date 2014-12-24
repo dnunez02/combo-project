@@ -1,4 +1,5 @@
 #include <string.h>
+#include <ctype.h>
 
 #include "def.h"
 
@@ -34,7 +35,7 @@ int strtodir(char *str){
     return QCF;
   } else if(!strcasecmp("S", str)){
     return S;
-  } else if(!strcasecmp("U", str)){
+  } else if(!strcasecmp("J", str) || !strcasecmp("U", str)){
     return U;
   } else if(!strcasecmp("UB", str)){
     return UB;
