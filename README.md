@@ -3,9 +3,7 @@ combo-project
 
 Some way to document fighting game combos.
 
-TODO: Find a decent representation for attacks and movements.
-
-May use base 10, read left to right [i.e. translate from Capcom notation to numpad notation]
+Uses a base 10, read left to right [i.e. translate from Capcom notation to numpad notation]
 However, is there a better one?
 
 Movements:
@@ -20,12 +18,12 @@ QCF, QCB, HCF, HCB, 360, FF (dash), BB(dash), CJ (superjump), DP (dragon punch: 
 
 Attacks:
 
-(Could use base 6 interpretation)
+Uses an octal representation.
 
-|    |    |    |
-|:--:|:--:|:--:|
-| LP | MP | HP |
-| LK | MK | HK |
+|    |    |    |    |
+|:--:|:--:|:--:|:--:|
+| LP | MP | HP | P  |
+| LK | MK | HK | K  |
 
 P (any punch), K (any kick), PP, KK, combinations of attacks (e.g. LP+LK)
 
