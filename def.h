@@ -35,14 +35,28 @@ typedef struct Combo_node* Combo;
 
 struct Combo_node {
   Move_t m;
-  Combo *next;
+  Combo next;
 };
+
 
 /* UTILITY FUNCTIONS */
 
 int toupperstr(char *, int);
 int strtodir(char *);
 int strtoatk(char *);
+char* dirtostr(int, char *);
+char* atktostr(int, char *);
+
+Move_t alloc_move(void);
 void print_move(Move_t);
+void print_move_numerical(Move_t);
+void print_move_raw(Move_t);
+
+Combo init_combo(Move_t);
+void add_move_to_combo(Move_t m, Combo prev);
+void print_combo(Combo);
+void print_combo_numerical(Combo);
+void print_combo_raw(Combo);
+void free_combo(Combo);
 
 #endif /* _DEF_H_ */
