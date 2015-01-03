@@ -5,17 +5,18 @@
 
 #include "def.h"
 
-int read_move(move_t);
-extern int strtodir(char *);
+int read_move(Move_t);
 
 int main(){
-  printf("%i\n", F);
-  read_move(NULL);
+  struct Move m;
+  read_move(&m);
+
+  print_move(&m);
   return 0;
 } 
 
 //Reads a Capcom notation move
-int read_move(move_t m){
+int read_move(Move_t m){
   char *dir;
   char *atk;
   int pos;
@@ -31,15 +32,21 @@ int read_move(move_t m){
   //Split around the dot
   dir = line;
   atk = index(line, '.');
-  if(!atk) {
-    perror("index:");
-    exit(1);
-  }
-  atk[0] = 0;
-  atk++;
 
-  printf("dir is %i\n", strtodir(dir));
-  printf("atk is %i\n", strtoatk(atk));
+  //TODO: If there is no dot, it is either only a direction
+  //      or only an attack. Need to discern.
+
+  //This assumes no dot means it must be an attack.
+  if(!atk) {
+    atk = line;
+    dir = NULL;
+  } else {
+    atk[0] = 0;
+    atk++;
+  }
+
+  m->direction = strtodir(dir);
+  m->attack = strtoatk(atk);
 
   free(line);
   return 0;

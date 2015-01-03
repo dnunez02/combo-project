@@ -1,5 +1,6 @@
 #include <string.h>
 #include <ctype.h>
+#include <stdio.h>
 
 #include "def.h"
 
@@ -13,6 +14,9 @@ int toupperstr(char *str, int len){
 }
 
 int strtodir(char *str){
+  if(!str) {
+    return NONE;
+  }
   if(!strcasecmp("B", str)){
     return B;
   } else if(!strcasecmp("C", str)){
@@ -49,6 +53,22 @@ int strtodir(char *str){
 }
 
 int strtoatk(char *str){
+  char *split;
+
+  if(!str){
+    return NONE;
+  }
+
+  //Deal with multiple attack buttons
+  if((split = rindex(str, '+'))){
+    int fst, snd;
+    split[0] = 0;
+    split++;
+    fst = strtoatk(str);
+    snd = strtoatk(split);
+    return (fst * 10) + snd;
+  }
+
   if(!strcasecmp("LP", str)){
     return LP;
   } else if(!strcasecmp("MP", str)){
@@ -64,4 +84,9 @@ int strtoatk(char *str){
   } else {
     return NONE;
   }
+}
+
+void print_move(Move_t m){
+  printf("dir is %i\n", m->direction);
+  printf("atk is %i\n", m->attack);
 }

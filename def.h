@@ -2,35 +2,47 @@
 #define _DEF_H_
 
 //All buttons for attacks
-enum attack_t {LP = 1 << 1, MP = 1 << 2, HP = 1 << 3, 
-	       LK = 1 << 4, MK = 1 << 5, HK = 1 << 6,
+enum attack_t {LP = 1, MP = 2, HP = 3, 
+	       LK = 4, MK = 5, HK = 6,
+               P = 7, K = 8,
 	       NONE = 0};
 
 //All buttons for movements
-enum direction_t {CB = 1 << 1, C = 1 << 2, CF = 1 << 3, 
-		  B = 1 << 4, S = 1 << 5, F = 1 << 6, 
-		  UB = 1 << 7, U = 1 << 8, UF = 1 << 9};
+enum direction_t {CB = 1, C = 2, CF = 3, 
+		  B = 4, S = 5, F = 6, 
+		  UB = 7, U = 8, UF = 9};
 
-static const int QCF = (C | CF | F);
-static const int QCB = (C | CB | B);
-static const int HCF = (B | CB | C | CF | F);
-static const int HCB = (F | CF | C | CB | B);
-static const int THROW = (LP | LK);
-static const int DP = (C | F | CF);
+static const int QCF = 236; //C + CF + F
+static const int QCB = 214; //C + CB + B
+static const int HCF = 41236; //B + CB + C + CF + F
+static const int HCB = 63214; //F + CF + C + CB + B
+static const int DP = 523; //F + C + CF
+
+static const int THROW = 14; //LP + LK
+
 static const int CANCEL = -1;
 
 /* Struct to document a singular movement */
-struct move {
+struct Move {
   int direction;
   int attack;
 };
 
-typedef move* move_t;
+typedef struct Move* Move_t;
+
+/* List of moves makes a combo */
+typedef struct Combo_node* Combo;
+
+struct Combo_node {
+  Move_t m;
+  Combo *next;
+};
 
 /* UTILITY FUNCTIONS */
 
 int toupperstr(char *, int);
 int strtodir(char *);
 int strtoatk(char *);
+void print_move(Move_t);
 
 #endif /* _DEF_H_ */
