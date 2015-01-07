@@ -35,6 +35,7 @@ typedef struct Combo_node* Combo;
 
 struct Combo_node {
   Move_t m;
+  char *note;
   Combo next;
 };
 
@@ -52,11 +53,16 @@ void print_move(Move_t);
 void print_move_numerical(Move_t);
 void print_move_raw(Move_t);
 
-Combo init_combo(Move_t);
-void add_move_to_combo(Move_t m, Combo prev);
+Combo init_combo(Move_t, char*);
+void add_move_to_combo(Move_t m, char*, Combo prev);
 void print_combo(Combo);
 void print_combo_numerical(Combo);
 void print_combo_raw(Combo);
 void free_combo(Combo);
+
+/* PARSING COMBOS */
+
+int read_move(Move_t, char*);
+Combo read_combo(void);
 
 #endif /* _DEF_H_ */

@@ -130,9 +130,9 @@ char* dirtostr(int direction, char *l){
   case 4: strncpy(s, "B", 2); break;
   case 5: strncpy(s, "S", 2); break;
   case 6: strncpy(s, "F", 2); break;
-  case 7: strncpy(s, "UB", 3); break;
-  case 8: strncpy(s, "U", 2); break;
-  case 9: strncpy(s, "UF", 3); break;
+  case 7: strncpy(s, "JB", 3); break;
+  case 8: strncpy(s, "J", 2); break;
+  case 9: strncpy(s, "JF", 3); break;
   default: s = ""; break;
   }
 
@@ -218,17 +218,27 @@ void print_move_raw(Move_t m){
 
 /* Combo-specific utilities */
 
-Combo init_combo(Move_t m){
+Combo init_combo(Move_t m, char *note){
   Combo tmp;
   tmp = (Combo) malloc(sizeof(struct Combo_node));
+
+  if(!tmp) {
+    fprintf(stderr, "Out of memory\n");
+    exit(1);
+  }
+
   tmp->m = m;
+
+  if(note) tmp->note = strdup(note);
+  else tmp->note = NULL;
+
   tmp->next = NULL;
   return tmp;
 }
 
-void add_move_to_combo(Move_t m, Combo prev){
+void add_move_to_combo(Move_t m, char *note, Combo prev){
   Combo tmp;
-  tmp = init_combo(m);
+  tmp = init_combo(m, note);
   prev->next = tmp;
 }
 
@@ -236,6 +246,7 @@ void print_combo(Combo c){
   Combo tmp = c;
   while(tmp){
     print_move(tmp->m);
+    if(tmp->note) printf("(%s)", tmp->note);
     tmp = tmp->next;
     if(tmp) printf(",");
   }
@@ -267,6 +278,7 @@ void free_combo(Combo c){
   while(c){
     tmp = c->next;
     free(c->m);
+    if(c->note) free(c->note);
     free(c);
     c = tmp;
   }
