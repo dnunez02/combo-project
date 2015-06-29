@@ -59,9 +59,9 @@ int strtodir(char *str){
     return S;
   } else if(!strcasecmp("J", str) || !strcasecmp("U", str)){
     return U;
-  } else if(!strcasecmp("UB", str)){
+  } else if(!strcasecmp("JB", str)){
     return UB;
-  } else if(!strcasecmp("UF", str)){
+  } else if(!strcasecmp("JF", str)){
     return UF;
   } else if(!strcasecmp("XX", str)){
     return CANCEL;
