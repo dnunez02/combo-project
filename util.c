@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "def.h"
+#include "include/def.h"
 
 //Make a string uppercase
 int toupperstr(char *str, int len){

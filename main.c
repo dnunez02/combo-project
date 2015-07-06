@@ -1,4 +1,4 @@
-#include "def.h"
+#include "include/def.h"
 
 int main(){
   Combo c;

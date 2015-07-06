@@ -7,7 +7,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-#include "def.h"
+#include "include/def.h"
 
 //Reads a Capcom notation move
 int read_move(Move_t m, char *line){
