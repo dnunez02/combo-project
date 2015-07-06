@@ -14,7 +14,7 @@ int toupperstr(char *str, int len){
   return 0;
 }
 
-int strtodir(char *str){
+direction_t strtodir(char *str){
   if(!str) {
     return NONE;
   }
@@ -70,7 +70,7 @@ int strtodir(char *str){
   }
 }
 
-int strtoatk(char *str){
+attack_t strtoatk(char *str){
   char *split;
 
   if(!str){
@@ -108,7 +108,7 @@ int strtoatk(char *str){
   }
 }
 
-char* dirtostr(int direction, char *l){
+char* dirtostr(direction_t direction, char *l){
   if(!direction){
     return l;
   }
@@ -124,15 +124,15 @@ char* dirtostr(int direction, char *l){
 
   //case analysis
   switch(tmp){
-  case 1: strncpy(s, "CB", 3); break;
-  case 2: strncpy(s, "C", 2); break;
-  case 3: strncpy(s, "CF", 3); break;
-  case 4: strncpy(s, "B", 2); break;
-  case 5: strncpy(s, "S", 2); break;
-  case 6: strncpy(s, "F", 2); break;
-  case 7: strncpy(s, "JB", 3); break;
-  case 8: strncpy(s, "J", 2); break;
-  case 9: strncpy(s, "JF", 3); break;
+  case CB: strncpy(s, "CB", 3); break;
+  case C: strncpy(s, "C", 2); break;
+  case CF: strncpy(s, "CF", 3); break;
+  case B: strncpy(s, "B", 2); break;
+  case S: strncpy(s, "S", 2); break;
+  case F: strncpy(s, "F", 2); break;
+  case UB: strncpy(s, "JB", 3); break;
+  case U: strncpy(s, "J", 2); break;
+  case UF: strncpy(s, "JF", 3); break;
   default: s = ""; break;
   }
 
@@ -147,7 +147,7 @@ char* dirtostr(int direction, char *l){
   return ans;
 }
 
-char* atktostr(int attack, char *l){
+char* atktostr(attack_t attack, char *l){
   if(!attack){
     return l;
   }
