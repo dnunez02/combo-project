@@ -1,6 +1,8 @@
 combo-project
 =============
 
+Current Work: Parsing a character sheet (see below)
+
 Some way to document fighting game combos.
 
 Uses a base 10, read left to right [i.e. translate from Capcom notation to numpad notation]
@@ -40,4 +42,21 @@ ATK := lp | mp | hp | p | lk | mk | hk | k
 NOTE := EMPTY | (STRING)
 STRING := EMPTY | Combinations of letters, punctuation, numbers, etc.
 EMPTY := nothing at all
+```
+
+Characters:
+
+Read a character's moveset, (optional) frame data, and (optional) combo list.
+
+Current Format 
+
+```
+CHARACTER NAME
+
+# Comments start with a pound/hash
+MOVE (optional name) STARTUP/ON HIT FRAMES/ON BLOCK FRAMES
+...
+
+COMBO
+...
 ```
