@@ -1,14 +1,14 @@
 combo-project
 =============
 
-Current Work: Parsing a character sheet (see below)
+**Current Work**: Parsing a character sheet (see below)
 
 Some way to document fighting game combos.
 
 Uses a base 10, read left to right [i.e. translate from Capcom notation to numpad notation]
 However, is there a better one?
 
-Movements:
+**Movements**:
 
 |     |     |     |
 |:---:|:---:|:---:|
@@ -18,7 +18,7 @@ Movements:
 
 QCF, QCB, HCF, HCB, 360, FF (dash), BB(dash), CJ (superjump), DP (dragon punch: F -> C -> CF), xx (cancels)
 
-Attacks:
+**Attacks**:
 
 Uses an octal representation.
 
@@ -33,7 +33,7 @@ Must allow for custom combinations of buttons unique to characers. (e.g. Stancel
 
 Can parse a full combo in Capcom notation with notes and print back in numerical notation (e.g. s.LP, c.MK, s.HP, j.LK, j.MK, QCB.HK, QCF.PP)
 
-Current Grammar for a Combo
+*Current Grammar for a Combo*
 ```
 COMBO := MOVE | MOVE,COMBO
 MOVE := DIR.ATTACK NOTE | DIR | ATTACK
@@ -44,11 +44,15 @@ STRING := EMPTY | Combinations of letters, punctuation, numbers, etc.
 EMPTY := nothing at all
 ```
 
-Characters:
+**Characters**:
 
 Read a character's moveset, (optional) frame data, and (optional) combo list.
 
-Current Format 
+Something to think about is how to deal with stances (e.g. Squiggly's dragon/seria) as well as air-enabled moves (e.g. Filia Hairballs, Fukua Fireballs)
+
+Something to think about is using the data to synthesize combos.
+
+*Current Sheet Format*
 
 ```
 CHARACTER NAME
