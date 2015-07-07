@@ -1,8 +1,15 @@
 Test
 
 # This is a comment
-LP (Jab) +3/+5/-2
-LK (Kick) +3/+6/-1
-QCF.LP +10/+5/-2 # Ignore everything past the hash
+LP N "Jab" +3/+5/-2
+LK N "Kick" +3/+6/-1
+# If the next line has frame data only, the previous move's data is assumed
+# So this next line assumes this is the kick after the second kick hits
+   +3/+3/-5
+QCF.LP Sp +10/+5/-2 # Ignore everything past the hash
 # QCF.HP (Hadouken) +2/+5/-1 This line is now gone.
-DP.HP +5/+1/-10
+
+#While the above is blank, nothing should be recorded by it
+DP.HP Sp +5/+1/-10
+
+QCF.P Su +30/+5/-50

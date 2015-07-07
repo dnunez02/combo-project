@@ -1,9 +1,10 @@
 Fillia
 
-LP
-LK
-MP
-MK
+LP	+5/+0/+3
+	+5/-2/+1
+LK	+9/+4/+7
+MP	+13/+5/+8
+MK	+10/+3/-1
 HP
 HK
 c.LP
@@ -12,12 +13,33 @@ c.MP
 c.MK
 c.HP
 c.HK
+j.LP	A
+j.LK	A
+j.MP	A
+
+
+
+
+
+j.MK	A 
+
+j.HP	A
+j.HK	A
 qcf.LP
 qcf.MP
 qcf.HP
-qcb.LK
-qcb.MK
-qcb.HK
+qcb.LK	"Hairball"
+qcb.MK	"Hairball"
+qcb.HK	"Hairball"
+qcb.LK	"Airball"	A
+qcb.MK	"Airball"	A
+qcb.HK	"Airball"	A
 dp.LP
 dp.MP
 dp.HP
+LP+LK
+LP+LK A
+qcb.K+K	"Gregor Samson"
+qcb.K+K	"Gregor Samson"	A
+qcb.P+P
+DP.P+P	"Fenrir Drive"
