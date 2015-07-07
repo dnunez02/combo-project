@@ -35,6 +35,8 @@ struct Move {
   attack_t attack;
   atk_type_t type;
   int n_startup_frames, n_on_hit_frames, n_on_block_frames;
+  int n_hits;
+  bool is_air_move;
 };
 
 typedef struct Move* Move_t;
@@ -49,7 +51,7 @@ struct Combo_node {
 };
 
 /* Holds info for a character */
-struct Character{
+struct Character {
   unsigned int n_moves, n_combos;
   char *name;
   struct Move* move_list;
